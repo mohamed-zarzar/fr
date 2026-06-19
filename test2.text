@@ -1,0 +1,46 @@
+I want to create module for student  subject module to do that : 
+subject has this field : 
+    - id (uuid PK)   - name (text required) -code (text required) 
+    - for subject relation (know it from schema)  (but can not create relation when create subject we only get the relation info in get)
+    - createdAt - updatedAt - deletedAt 
+    the use cases :
+    1 - create subject : user can create subject if it manager and has permission create subject has to validate all field  by dto 
+        return clear validation error
+        handle error in both language arabic and english depened on request header 
+        handle message in both language arabic and english depened on request header 
+        make sure response in all case in this pattern : {statusCode , data , message , error }
+       
+    2 - update subject : user can update subject if it manager and has permission update subject do the validation
+    3 - get one : user can get subject if it manager and has permission index subject 
+    4 - get all : user can get subject if it manager and has permission index subject 
+        required pagination if no pagination info put page 1 and limit 10 by default  able to search for name or code in search param get string return all result that contain in name
+    5 - get all for select : user can get subject if it manager no permission required
+        this api return only name  and id able to search  like get all and get parametar named required result that is arr of ids that has to return it in result 
+    6 - export excel : user can export subject if it manager and has permission index manager
+    
+  
+    9 - delete : soft delete user can delete subject if it manager and has permission delete subject 
+
+    ---------------
+    Task:
+Generate two outputs for this project:
+
+1. README.md
+- Document the project structure and modules
+- Describe how modules interact and data flows
+- Include best practices for minimizing unnecessary computation
+
+2. Cursor Rule File
+- Define rules to optimize resource efficiency and cost
+- Include:
+  - Caching strategies
+  - Limits on API usage and repeated operations
+  - Batch processing patterns
+  - Lazy execution where possible
+  - Conditions for triggering workflows (avoid unnecessary runs)
+  - Resource monitoring guidelines (CPU, memory)
+
+Requirements:
+- Focus on reducing redundant work and automating recurring tasks
+- Keep rules generic and reusable across projects
+- Prioritize cost-efficiency and performance

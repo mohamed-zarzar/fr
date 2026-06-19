@@ -1,0 +1,35 @@
+I want to build these api :
+- add absence for student that take these student date isJustified reason (can add only one absence for student in specific day)
+- add late for student that take these student date period isJustified reason (can add only one late for student in specific day)
+- bulk add for student absence
+- bulk add for student late
+- get list record absence (with required pagination default page 1 limit 10) with these filters - students - level - class -dateFrom - dateTo
+- get list record late (with required pagination default page 1 limit 10) with these filters - students - level - class -dateFrom - dateTo
+- get statistics totalAbsences(with how mangy isJustfied and how many not) totalLates (with how mangy isJustfied and how many not) Avg Late Period with these filters - students - level - class -dateFrom - dateTo
+- import excel by student id or name or code 
+- download excel template 
+- export with  these filters - students - level - class -dateFrom - dateTo
+
+- add absence for manager that take these manager date isJustified reason (can add only one absence for manager in specific day)
+- add late for manager that take these manager date period isJustified reason (can add only one late for manager in specific day)
+- bulk add for manager absence
+- bulk add for manager late
+- get list record absence (with required pagination default page 1 limit 10) with these filters - managers - level - class -dateFrom - dateTo
+- get list record late (with required pagination default page 1 limit 10) with these filters - managers - level - class -dateFrom - dateTo
+- get statistics totalAbsences(with how mangy isJustfied and how many not) totalLates (with how mangy isJustfied and how many not) Avg Late Period with these filters - manager - level - class -dateFrom - dateTo
+- import excel by manager id or name or code 
+- download excel template 
+- export with these filters - managers - level - class -dateFrom - dateTo
+
+- add absence for teacher that take these teacher date isJustified reason sessionId (can add only one absence for teacher  in specific day in sessionId)
+- add late for teacher that take these teacher date period isJustified reason (can add only one late for teacher in specific day in sessionId)
+- bulk add for teacher absence
+- bulk add for teacher late
+- get list record absence (with required pagination default page 1 limit 10) with these filters - teachers - level - class -dateFrom - dateTo
+- get list record late (with required pagination default page 1 limit 10) with these filters - teachers - level - class -dateFrom - dateTo
+- get statistics totalAbsences(with how mangy isJustfied and how many not) totalLates (with how mangy isJustfied and how many not) Avg Late Period with these filters - teacher - level - class -dateFrom - dateTo
+- import excel by teacher id or name or code 
+- download excel template 
+- export with these filters - teachers - level - class -dateFrom - dateTo
+
+sessions is predefined list in setting module

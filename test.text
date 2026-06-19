@@ -1,0 +1,52 @@
+I want to update student module to do that : 
+    student has this field : 
+    - id (uuid PK)    - code (number uniqe) - firstname (text required) - lastname (text required) - level (text required Fk for level entity) - class (text Fk for class entity) 
+    - parents (many to many relation with parent) - dynamicFields (json)
+    - createdAt - updatedAt - deletedAt -imageId
+    the use cases :
+    1 - create student : user can create student if it manager and has permission create student has to validate all field  by dto and validate dynamicFields, the dynamicFields validation from setting , setting has coloum student schema like this :
+        fields: FieldDefinition[]
+        export type FieldType = 'text' | 'date' | 'select' | 'multi-select' | 'file' | 'number' | 'email' | 'phone' | 'textarea';
+        export interface FieldDefinition {
+        name: string;
+        label: string;
+        type: FieldType;
+        required: boolean;
+        options?: { value: string; label: string }[];
+        validation?: { min?: number; max?: number; pattern?: string; customMessage?: string };
+        placeholder?: string;
+        defaultValue?: any;
+        order: number;
+        visible: boolean;
+        editable: boolean;
+        }  
+        so validate dynamicFields depened on  student schema coloum from setting ,
+        return clear validation error
+        handle error in both language arabic and english depened on request header 
+        handle message in both language arabic and english depened on request header 
+        make sure response in all case in this pattern : {statusCode , data , message , error }
+        when create a student create user with same PK uuid of user the creation has to be in transaction to success all or fail all
+        field code is auto incrmental number if provide validate the uniqeness if not auto generate 
+    2 - update student : user can update student if it manager and has permission update student do the validation, code not able to update
+    3 - get one : user can get student if it manager and has permission index student 
+    4 - get all : user can get student if it manager and has permission index student 
+        required pagination if no pagination info put page 1 and limit 10 by default able to filter on level and class able to search for fullname (firstname + lastname) or code in search param get string return all result that contain in fullname or code
+    5 - get all for select : user can get student if it manager no permission required
+        this api return only firstname and lastname and code and id able to search and filter like get all and get parametar named required result that is arr of ids that has to return it in result 
+    6 - export excel : user can ecport student if it manager and has permission index student
+        in relation like class,level,parent return name not id
+    7 - import excel :  user can import student if it manager and has permission create student
+        all record in excel has to validate as create 
+        should return a clear arr of error for every record 
+        all create has to be in transaction to success all or fail all
+        if one record has the same code it should update not create new one if code is empty created as new record
+        in coloum that has relatiom like level,class,parent in excel file we add name for level and class, fullname for parent
+        we can get the file from export and edit in some cell in it the upload it 
+    8 - download template for excel : depened on schema fields and student schema coloum from setting
+    9 - delete : soft delete user can delete student if it manager and has permission delete student
+    
+    for now add level and  class as entity I will build it later completly
+    level : -id uuid PK - name (uniqe)
+    class : -id uuip Pk - name  -levelId Fk
+    parent : -id uuid Pk -firstname -lastname
+    in get return only student not deleted
